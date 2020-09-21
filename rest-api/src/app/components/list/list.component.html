@@ -1,0 +1,4 @@
+<mat-list *ngFor="let s of (servers$ | async)">
+  <mat-list-item>{{ s.name }} </mat-list-item>
+  <i class="fas fa-list"></i>
+</mat-list>

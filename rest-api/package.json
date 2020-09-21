@@ -24,6 +24,8 @@
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "concurrently": "^5.3.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
