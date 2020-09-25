@@ -4,8 +4,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatIconModule, MatListModule, MatToolbarModule } from "@angular/material";
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatToolbarModule } from "@angular/material";
 import { ListComponent } from './components/list/list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ListComponent],
@@ -16,7 +17,13 @@ import { ListComponent } from './components/list/list.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

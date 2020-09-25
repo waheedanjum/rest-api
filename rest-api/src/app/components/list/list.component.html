@@ -1,4 +1,69 @@
-<mat-list *ngFor="let s of (servers$ | async)">
-  <mat-list-item>{{ s.name }} </mat-list-item>
-  <i class="fas fa-list"></i>
-</mat-list>
+<div
+  *ngIf="!(selectedServer$ | async)"
+  id="view"
+  class="list-form"
+  [formGroup]="listForm"
+>
+  <div>
+    <mat-radio-group formControlName="uuid">
+      <mat-radio-button *ngFor="let s of servers$ | async" [value]="s.uuid">
+        {{ s.name }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <br />
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="listForm.invalid"
+      (click)="onSelectServer()"
+    >
+      View
+    </button>
+    &nbsp;
+    <button mat-raised-button color="primary">Add</button>
+  </div>
+</div>
+
+<div
+  *ngIf="selectedServer$ | async"
+  id="detail-view"
+  [formGroup]="detailViewForm"
+>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="dvf.name.errors?.required">* Required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>State</mat-label>
+      <input matInput formControlName="state" />
+    </mat-form-field>
+    <mat-error *ngIf="dvf.state.errors?.required">* Required</mat-error>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Memory</mat-label>
+      <input matInput formControlName="mem" />
+    </mat-form-field>
+    <mat-error *ngIf="dvf.mem.errors?.required">* Required</mat-error>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>CPU</mat-label>
+      <input matInput formControlName="cpu" />
+    </mat-form-field>
+    <mat-error *ngIf="dvf.cpu.errors?.required">* Required</mat-error>
+  </div>
+
+  <div>
+    <button mat-raised-button [disabled]="detailViewForm.invalid"  color="primary">Save</button>
+  </div>
+</div>

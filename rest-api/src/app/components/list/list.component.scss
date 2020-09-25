@@ -1,11 +1,10 @@
-
-.mat-list {
-    background-color: rgb(207, 112, 112);
-    
-}
-
-:host {
+.list-form {
     display: block;
     width: 200px;
-    border: 1px solid black;
-  }
+    height: 300px;
+    margin: 30px;
+}
+
+::ng-deep .mat-radio-label-content {
+    margin: 10px !important;
+}
