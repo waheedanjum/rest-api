@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatToolbarModule } from "@angular/material";
 import { ListComponent } from './components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddServerComponent } from './components/add-server/add-server.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent],
+  declarations: [AppComponent, ListComponent, AddServerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

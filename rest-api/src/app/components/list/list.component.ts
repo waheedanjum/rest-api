@@ -1,13 +1,9 @@
 import { Component, NgModule, OnInit } from "@angular/core";
 import { Server } from "../../models/server";
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { DataService } from "src/app/services/data.service";
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
+import { Router, NavigationExtras, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-list",
@@ -18,7 +14,16 @@ export class ListComponent implements OnInit {
   private servers$: Observable<Server>;
   private selectedServer$: Observable<Server>;
 
-  constructor(private dataService: DataService, private fb: FormBuilder) {}
+  private subscription: Subscription;
+
+  private isUpdated: boolean = false;
+
+  constructor(
+    private dataService: DataService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
     this.servers$ = this.dataService.getServers();
@@ -33,6 +38,7 @@ export class ListComponent implements OnInit {
   });
 
   private detailViewForm = this.fb.group({
+    uuid: ["", Validators.required],
     name: ["", Validators.required],
     mem: ["", Validators.required],
     state: ["", Validators.required],
@@ -42,7 +48,7 @@ export class ListComponent implements OnInit {
   // Getters for Forms
   get lf() {
     return this.lf.controls;
-  }
+ }
 
   get dvf() {
     return this.detailViewForm.controls;
@@ -57,6 +63,10 @@ export class ListComponent implements OnInit {
     this.selectedServer$ = this.dataService.getServerByUUID(this.UUID);
 
     this.selectedServer$.subscribe((server) => {
+      this.detailViewForm.patchValue(
+        { uuid: server[0].uuid },
+        { onlySelf: true, emitEvent: false }
+      );
       this.detailViewForm.patchValue(
         { name: server[0].name },
         { onlySelf: true, emitEvent: false }
@@ -74,5 +84,27 @@ export class ListComponent implements OnInit {
         { onlySelf: true, emitEvent: true }
       );
     });
+  }
+
+  private onAddClick() {
+    this.router.navigate(['add-server']);
+    console.log(this.route.url);
+    console.log(this.router.url);
+  }
+
+  private onSubmitDetailsForm() {
+    if (this.detailViewForm.valid) {
+      const newServer = this.detailViewForm.value as Server;
+      const updateServer$ = this.dataService.updateServer(newServer);
+
+      this.subscription = updateServer$.subscribe((server) => {
+        this.isUpdated = true;
+        console.log("Update Server Details :", server);
+      });
+
+      setTimeout(() => {
+        this.isUpdated = true;
+      }, 5000);
+    }
   }
 }

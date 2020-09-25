@@ -1,5 +1,6 @@
 {
-  "servers": [{
+  "servers": [
+    {
       "uuid": "cb1cb873-0a46-41d6-affc-a1ed41955fbf",
       "mem": "1 GB",
       "state": "stopped",
@@ -19,6 +20,13 @@
       "state": "stopped",
       "cpu": "9 GHz",
       "name": "My Server 3"
+    },
+    {
+      "uuid": "5c3777be-4587-476f-bed2-e677e7c1ce28",
+      "name": "server-4",
+      "mem": "ss",
+      "state": "Active",
+      "cpu": "14 GHz"
     }
   ]
 }
