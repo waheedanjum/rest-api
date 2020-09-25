@@ -18,10 +18,6 @@ export class ListComponent implements OnInit {
   private servers$: Observable<Server>;
   private selectedServer$: Observable<Server>;
 
-  test: boolean = false;
-
-  private se: Server;
-
   constructor(private dataService: DataService, private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -78,7 +74,5 @@ export class ListComponent implements OnInit {
         { onlySelf: true, emitEvent: true }
       );
     });
-
-    this.test = true;
   }
 }
