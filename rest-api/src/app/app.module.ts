@@ -8,9 +8,10 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, Mat
 import { ListComponent } from './components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddServerComponent } from './components/add-server/add-server.component';
+import { ListDetailsComponent } from './components/list-details/list-details.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, AddServerComponent],
+  declarations: [AppComponent, ListComponent, AddServerComponent, ListDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

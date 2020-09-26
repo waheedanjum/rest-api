@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-root",
@@ -8,7 +9,9 @@ import { Component, OnInit } from "@angular/core";
 export class AppComponent implements OnInit {
   title = "rest-api";
 
-  constructor() {}
+  constructor(private router: Router,) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.navigate(["home"]);
+  }
 }

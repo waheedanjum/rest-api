@@ -1,0 +1,42 @@
+<form id="detail-view" [formGroup]="detailViewForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="dvf.name.errors?.required">* Required</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>State</mat-label>
+        <input matInput formControlName="state" />
+      </mat-form-field>
+      <mat-error *ngIf="dvf.state.errors?.required">* Required</mat-error>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Memory</mat-label>
+        <input matInput formControlName="mem" />
+      </mat-form-field>
+      <mat-error *ngIf="dvf.mem.errors?.required">* Required</mat-error>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>CPU</mat-label>
+        <input matInput formControlName="cpu" />
+      </mat-form-field>
+      <mat-error *ngIf="dvf.cpu.errors?.required">* Required</mat-error>
+    </div>
+  
+    <div>
+      <button mat-raised-button type="submit" [disabled]="detailViewForm.invalid" color="primary">Save</button>
+    </div>
+   
+      <div *ngIf="isUpdated">
+        <p style="font-size: x-large; color: greenyellow;"> The server details updated.</p>
+      </div>
+  
+  </form>
