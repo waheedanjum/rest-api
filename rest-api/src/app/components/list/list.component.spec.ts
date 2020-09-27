@@ -1,16 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { ListComponent } from "./list.component";
+import { AppRoutingModule } from "../../app-routing.module";
+import { AddServerComponent } from '../add-server/add-server.component';
 
-import { ListComponent } from './list.component';
-
-describe('ListComponent', () => {
+describe("ListComponent", () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule, HttpClientModule, AppRoutingModule],
+      declarations: [ListComponent, AddServerComponent],
+      providers: [],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +25,7 @@ describe('ListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", async() => {
     expect(component).toBeTruthy();
   });
 });

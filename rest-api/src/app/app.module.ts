@@ -4,6 +4,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ListComponent } from "./components/list/list.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { AddServerComponent } from "./components/add-server/add-server.component";
+import { ListDetailsComponent } from "./components/list-details/list-details.component";
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -13,10 +17,6 @@ import {
   MatRadioModule,
   MatToolbarModule,
 } from "@angular/material";
-import { ListComponent } from "./components/list/list.component";
-import { ReactiveFormsModule } from "@angular/forms";
-import { AddServerComponent } from "./components/add-server/add-server.component";
-import { ListDetailsComponent } from "./components/list-details/list-details.component";
 
 @NgModule({
   declarations: [
