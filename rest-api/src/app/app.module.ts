@@ -4,15 +4,27 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatRadioModule, MatToolbarModule } from "@angular/material";
-import { ListComponent } from './components/list/list.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AddServerComponent } from './components/add-server/add-server.component';
-import { ListDetailsComponent } from './components/list-details/list-details.component';
-import { DeleteComponent } from './components/delete/delete.component';
+import {
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatRadioModule,
+  MatToolbarModule,
+} from "@angular/material";
+import { ListComponent } from "./components/list/list.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { AddServerComponent } from "./components/add-server/add-server.component";
+import { ListDetailsComponent } from "./components/list-details/list-details.component";
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, AddServerComponent, ListDetailsComponent, DeleteComponent],
+  declarations: [
+    AppComponent,
+    ListComponent,
+    AddServerComponent,
+    ListDetailsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +38,7 @@ import { DeleteComponent } from './components/delete/delete.component';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule 
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
