@@ -35,7 +35,7 @@ export class DataService {
       params: new HttpParams().set("uuid", server.uuid) 
   }; 
     return this.httpclient
-      .patch<Server>(this.REST_API_SERVER, server, options)
+      .patch<Server>(this.REST_API_SERVER, server)
       .pipe(catchError(this.handleError("updateServer", server)));
   }
   
@@ -46,6 +46,14 @@ export class DataService {
    return this.httpclient.post<Server>(this.REST_API_SERVER, server, { headers: this.getHttpHeader(), params});
   }
 
+  // Delete
+  public deleteServer(uuid: string): Observable<{}> {
+    const url = `${this.REST_API_SERVER}/${uuid}`; 
+    return this.httpclient.delete(url, { headers: this.getHttpHeader()})
+    .pipe(
+      catchError(this.handleError('deleteHero'))
+    );
+  }
 
   // HttpHeaders
   private getHttpHeader(): HttpHeaders {

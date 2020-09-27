@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Server } from 'src/app/models/server';
+import { Server } from "src/app/models/server";
 import { DataService } from "src/app/services/data.service";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,7 +11,6 @@ import { v4 as uuidv4 } from "uuid";
   styleUrls: ["./add-server.component.scss"],
 })
 export class AddServerComponent implements OnInit {
- 
   private addServerForm = this.fb.group({
     uuid: ["", Validators.required],
     name: ["", Validators.required],
@@ -42,12 +41,22 @@ export class AddServerComponent implements OnInit {
 
   private onSubmit(): void {
     if (this.addServerForm.valid) {
-      // Post Call
-
       const newServer = this.addServerForm.value as Server;
-      this.dataService.addServer(newServer).subscribe((s) => {
-        console.log(s);
-      });
+
+      // Post call adding new server
+      this.dataService.addServer(newServer).subscribe(
+        (s) => {
+          console.log("New Server :", s);
+        },
+        (err) => {
+          console.log(" Error adding new Server");
+        },
+        () => {
+         
+        }
+      );
+
+      this.router.navigateByUrl['./home'];
     }
   }
 }

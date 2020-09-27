@@ -20,20 +20,6 @@
       "state": "stopped",
       "cpu": "9 GHz",
       "name": "My Server 3"
-    },
-    {
-      "uuid": "5c3777be-4587-476f-bed2-e677e7c1ce28",
-      "name": "server-4",
-      "mem": "ss",
-      "state": "Active",
-      "cpu": "14 GHz"
-    },
-    {
-      "uuid": "3f435874-b44c-4f58-8b68-9f28bcee8091",
-      "name": "My Server 6",
-      "mem": "33 GB",
-      "state": "Normal",
-      "cpu": "99 GHz"
     }
   ]
 }

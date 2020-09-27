@@ -9,9 +9,10 @@ import { ListComponent } from './components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddServerComponent } from './components/add-server/add-server.component';
 import { ListDetailsComponent } from './components/list-details/list-details.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 @NgModule({
-  declarations: [AppComponent, ListComponent, AddServerComponent, ListDetailsComponent],
+  declarations: [AppComponent, ListComponent, AddServerComponent, ListDetailsComponent, DeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

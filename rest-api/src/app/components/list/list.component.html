@@ -6,17 +6,20 @@
       </mat-radio-button>
     </mat-radio-group>
   </div>
+
   <div>
-    <br />
-    <button
-      mat-raised-button
-      color="primary"
-      [disabled]="listForm.invalid"
-      (click)="onSelectServer()"
-    >
-      View
+    <button mat-raised-button color="primary" [disabled]="listForm.invalid" (click)="onDelete()">
+      Delete
     </button>
     &nbsp;
-    <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+    <button mat-raised-button color="primary" [disabled]="listForm.invalid" (click)="onEdit()">
+      View
+    </button>
+  </div>
+  <br />
+  <div>
+    <button mat-raised-button style="width: 135px" color="primary" (click)="onAdd()">
+      Add
+    </button>
   </div>
 </div>

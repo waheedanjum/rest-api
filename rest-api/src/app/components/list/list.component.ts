@@ -4,6 +4,8 @@ import { Observable, Subscription } from "rxjs";
 import { DataService } from "src/app/services/data.service";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router, NavigationExtras, ActivatedRoute } from "@angular/router";
+import { Inject } from '@angular/core';    
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: "app-list",
@@ -14,10 +16,11 @@ export class ListComponent implements OnInit {
   private servers$: Observable<Server>;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private dataService: DataService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
@@ -42,10 +45,14 @@ export class ListComponent implements OnInit {
 
   private onAdd(): void {
     this.router.navigate(["add-server"]);
-    // *ngIf="router.url !== '/add-server'"
   }
 
-  onSelectServer(): void {
-    this.router.navigate(["list-server-details/:" + this.UUID]);
+  private onDelete(): void {
+    this.dataService.deleteServer(this.UUID).subscribe();
+    this.document.location.reload();
+  }
+
+  onEdit(): void {
+    this.router.navigate(["list-server-details/", this.UUID]);
   }
 }
