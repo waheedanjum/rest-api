@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Server } from "src/app/models/server";
 import { DataService } from "src/app/services/data.service";
 import { v4 as uuidv4 } from "uuid";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-add-server",
@@ -11,6 +12,8 @@ import { v4 as uuidv4 } from "uuid";
   styleUrls: ["./add-server.component.scss"],
 })
 export class AddServerComponent implements OnInit {
+  private isAdded: boolean = false;
+
   private addServerForm = this.fb.group({
     uuid: ["", Validators.required],
     name: ["", Validators.required],
@@ -27,7 +30,8 @@ export class AddServerComponent implements OnInit {
     private dataService: DataService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location 
   ) {}
 
   ngOnInit() {
@@ -52,11 +56,13 @@ export class AddServerComponent implements OnInit {
           console.log(" Error adding new Server");
         },
         () => {
-         
+          this.isAdded = true;
         }
       );
-
-      this.router.navigateByUrl['./home'];
     }
+  }
+
+  private onBack() {
+    this.location.back();  
   }
 }

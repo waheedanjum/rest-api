@@ -14,6 +14,10 @@ const routes: Routes = [
     component: AddServerComponent,
   },
   {
+    path: "list-server-details",
+    component: ListDetailsComponent,
+  },
+  {
     path: "list-server-details/:uuid",
     component: ListDetailsComponent,
   },

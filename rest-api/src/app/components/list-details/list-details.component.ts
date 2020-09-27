@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 import { Server } from "src/app/models/server";
 import { DataService } from "src/app/services/data.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-list-details",
@@ -26,8 +27,8 @@ export class ListDetailsComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location 
   ) {}
 
   ngOnInit() {
@@ -36,6 +37,10 @@ export class ListDetailsComponent implements OnInit {
       console.log(params.get('uuid'));
       
     });
+  }
+
+  private onBack() {
+    this.location.back();  
   }
 
   private onSubmit() {
@@ -48,10 +53,6 @@ export class ListDetailsComponent implements OnInit {
       });
       
       this.isUpdated = true;
-      
-      setTimeout(() => {
-        this.router.navigate['home'];
-      }, 2000);
     }
   }
 
