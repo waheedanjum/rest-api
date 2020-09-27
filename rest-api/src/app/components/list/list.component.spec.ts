@@ -5,6 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ListComponent } from "./list.component";
 import { AppRoutingModule } from "../../app-routing.module";
 import { AddServerComponent } from '../add-server/add-server.component';
+import { ListDetailsComponent } from '../list-details/list-details.component';
 
 describe("ListComponent", () => {
   let component: ListComponent;
@@ -13,7 +14,7 @@ describe("ListComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, HttpClientModule, AppRoutingModule],
-      declarations: [ListComponent, AddServerComponent],
+      declarations: [ListComponent, AddServerComponent, ListDetailsComponent],
       providers: [],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

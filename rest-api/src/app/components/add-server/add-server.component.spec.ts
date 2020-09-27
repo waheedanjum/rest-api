@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AddServerComponent } from "./add-server.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "../../app-routing.module";
+import { ListComponent } from '../list/list.component';
+import { ListDetailsComponent } from '../list-details/list-details.component';
 
 describe("AddServerComponent", () => {
   let component: AddServerComponent;
@@ -12,7 +14,7 @@ describe("AddServerComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, HttpClientModule, AppRoutingModule],
-      declarations: [AddServerComponent],
+      declarations: [AddServerComponent, ListComponent, ListDetailsComponent],
       providers: [],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

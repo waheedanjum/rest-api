@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
     return this.lf.controls;
   }
 
-  get UUID() {
+ public get UUID() {
     return this.listForm.get("uuid").value;
   }
 

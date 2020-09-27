@@ -8,17 +8,32 @@
   </div>
 
   <div>
-    <button mat-raised-button color="primary" [disabled]="listForm.invalid" (click)="onDelete()">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="listForm.invalid"
+      (click)="onDelete()"
+    >
       Delete
     </button>
     &nbsp;
-    <button mat-raised-button color="primary" [disabled]="listForm.invalid" (click)="onEdit()">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="listForm.invalid"
+      (click)="onEdit()"
+    >
       View
     </button>
   </div>
   <br />
   <div>
-    <button mat-raised-button style="width: 135px" color="primary" (click)="onAdd()">
+    <button
+      mat-raised-button
+      style="width: 135px"
+      color="primary"
+      (click)="onAdd()"
+    >
       Add
     </button>
   </div>

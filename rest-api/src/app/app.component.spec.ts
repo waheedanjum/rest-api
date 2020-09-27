@@ -3,6 +3,7 @@ import { TestBed, async } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
 import { AddServerComponent } from './components/add-server/add-server.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -10,8 +11,10 @@ describe("AppComponent", () => {
       imports: [RouterTestingModule],
       declarations: [AppComponent, AddServerComponent],
       providers: [],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
+      }).compileComponents();
   }));
 
   it("should create the app", async () => {
