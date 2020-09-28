@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable, of} from "rxjs";
 import { Server } from "../models/server";
 import { catchError} from "rxjs/operators";
-import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: "root",
 })
 export class DataService {
-  private REST_API_SERVER: string = "http://localhost:3000/servers";
+  public REST_API_SERVER: string = "http://localhost:3000/servers";
 
   constructor(private httpclient: HttpClient) {}
  
